@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalytic Dhairya (Cya)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="dashboard-shell">
+    <header class="topbar">
+      <div class="brand-panel">
+        <img class="brand-logo" src="pdfs/logo.jpeg" alt="Cya logo">
+        <div class="brand-text">
+          <p class="brand-title">Catalytic Dhairya</p>
+          <p class="brand-subtitle">(Cya)</p>
+        </div>
+      </div>
+
+      <div class="topbar-actions">
+        <div class="auth-buttons" id="authButtons">
+          <button class="btn btn-outline" id="loginBtn">Login</button>
+          <button class="btn btn-primary" id="signUpBtn">Sign Up</button>
+        </div>
+        <button class="btn btn-outline hide" id="logoutBtn">Logout</button>
+        <div class="profile-widget">
+          <div class="avatar" id="profileAvatar">GU</div>
+          <div class="profile-text">
+            <span class="profile-name" id="profileName">Guest User</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="dashboard-grid">
+      <aside class="sidebar">
+        <div class="sidebar-title">MENU</div>
+        <button class="sidebar-item active" data-tab="subjects">📚 Subjects / Courses</button>
+        <button class="sidebar-item" data-tab="quotes">🔥 Motivational Quotes</button>
+        <button class="sidebar-item" data-tab="faqs">❓ FAQs</button>
+      </aside>
+
+      <main class="main-panel">
+        <section class="hero-panel">
+          <div class="hero-copy">
+            <p class="eyebrow">Welcome to your learning hub</p>
+            <h1>Catalytic Dhairya (Cya) </h1>
+            <p>Structured courses, instant downloads, and daily motivation — sab ek hi jagah par.</p>
+          </div>
+          <div class="greeting-card">
+            <div class="greeting-box" id="greetingForm">
+              <p class="card-title">Aapka naam kya hai?</p>
+              <input id="userName" type="text" placeholder="Aapka naam" autocomplete="off">
+              <button id="saveNameBtn" class="btn btn-primary" type="button">Save</button>
+            </div>
+            <div class="greeting-box hide" id="greetingMessage">
+              <p id="welcomeText" class="card-title"></p>
+              <p class="card-subtext">Welcome, learning journey ke liye tayar ho jaiye.</p>
+              <button id="resetNameBtn" class="text-button" type="button">Change Name</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-panel">
+          <div class="tab-section active" id="subjects">
+            <div class="section-header">
+              <h2>Subjects / Courses</h2>
+              <p>Week-wise PDF download buttons ke saath apna study plan aage badhaiye.</p>
+            </div>
+            <div class="subject-grid">
+              <article class="subject-card">
+                <h3>Statistics</h3>
+                <div class="chapter-row">
+                  <span>Week 1</span>
+                  <a class="chapter-download" href="https://drive.google.com/uc?export=download&id=1X33T7ivvd_CBbhxaKm1oH2SXAMCXj2Xg" target="_blank" rel="noreferrer">Download Drive</a>
+                </div>
+                <div class="chapter-row">
+                  <span>Week 2</span>
+                  <a class="chapter-download" href="https://drive.google.com/uc?export=download&id=1h5tx35tmT3NvBJ0ySD-fcgZuUW1UlD0R" target="_blank" rel="noreferrer">Download Drive</a>
+                </div>
+                <div class="chapter-row">
+                  <span>Week 3</span>
+                  <a class="chapter-download" href="https://drive.google.com/uc?export=download&id=1ntL6q5Z30ze9bAIE24mYRgqwukh9X-xh" target="_blank" rel="noreferrer">Download Drive</a>
+                </div>
+                <div class="chapter-row">
+                  <span>Week 4</span>
+                  <a class="chapter-download" href="https://drive.google.com/uc?export=download&id=1UQNMSchPERMpGemJSPb1a4fRpn89OlDb" target="_blank" rel="noreferrer">Download Drive</a>
+                </div>
+              </article>
+
+              <article class="subject-card">
+                <h3>Mathematics</h3>
+                <div class="chapter-row">
+                  <span>Week 1</span>
+                  <a class="chapter-download" href="https://drive.google.com/uc?export=download&id=MATH_CH1" target="_blank" rel="noreferrer">Download Drive</a>
+                </div>
+                <div class="chapter-row">
+                  <span>Week 2</span>
+                  <a class="chapter-download" href="https://drive.google.com/uc?export=download&id=MATH_CH2" target="_blank" rel="noreferrer">Download Drive</a>
+                </div>
+                <div class="chapter-row">
+                  <span>Week 3</span>
+                  <a class="chapter-download" href="https://drive.google.com/uc?export=download&id=MATH_CH3" target="_blank" rel="noreferrer">Download Drive</a>
+                </div>
+              </article>
+
+              <article class="subject-card">
+                <h3>Computational Thinking</h3>
+                <div class="chapter-row">
+                  <span>Week 1</span>
+                  <a class="chapter-download" href="https://drive.google.com/uc?export=download&id=CT_CH1" target="_blank" rel="noreferrer">Download Drive</a>
+                </div>
+                <div class="chapter-row">
+                  <span>Week 2</span>
+                  <a class="chapter-download" href="https://drive.google.com/uc?export=download&id=CT_CH2" target="_blank" rel="noreferrer">Download Drive</a>
+                </div>
+                <div class="chapter-row">
+                  <span>Week 3</span>
+                  <a class="chapter-download" href="https://drive.google.com/uc?export=download&id=CT_CH3" target="_blank" rel="noreferrer">Download Drive</a>
+                </div>
+              </article>
+
+              <article class="subject-card">
+                <h3>Python</h3>
+                <div class="chapter-row">
+                  <span>Week 1</span>
+                  <a class="chapter-download" href="https://drive.google.com/uc?export=download&id=PY_CH1" target="_blank" rel="noreferrer">Download Drive</a>
+                </div>
+                <div class="chapter-row">
+                  <span>Week 2</span>
+                  <a class="chapter-download" href="https://drive.google.com/uc?export=download&id=PY_CH2" target="_blank" rel="noreferrer">Download Drive</a>
+                </div>
+                <div class="chapter-row">
+                  <span>Week 3</span>
+                  <a class="chapter-download" href="https://drive.google.com/uc?export=download&id=PY_CH3" target="_blank" rel="noreferrer">Download Drive</a>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="tab-section" id="quotes">
+            <div class="section-header">
+              <h2>Motivational Quotes</h2>
+              <p>Daily inspiration se apna study mood maintain rakhein.</p>
+            </div>
+            <div class="quote-grid">
+              <article class="quote-card">
+                <p>"Aaj ka ek chhota step kal ke bade safar ka pehla kadam hota hai."</p>
+                <span>- Cya Learning</span>
+              </article>
+              <article class="quote-card">
+                <p>"Practice aur patience dono zaroori hain. Dono ek saath hi kamyab karte hain."</p>
+                <span>- Student Mindset</span>
+              </article>
+              <article class="quote-card">
+                <p>"Har chapter ek naya idea leta hai; apne pace se padhte raho."</p>
+                <span>- Learning Journey</span>
+              </article>
+            </div>
+          </div>
+
+          <div class="tab-section" id="faqs">
+            <div class="section-header">
+              <h2>FAQs</h2>
+              <p>Frequently asked questions aur unke answers accordion style.</p>
+            </div>
+            <div class="faq-card">
+              <button class="faq-question">PDFs kaise download karun?</button>
+              <div class="faq-answer">Har chapter ke samne Download Drive button par click karen. Links ko aap apne Google Drive file IDs se replace kar sakte hain.</div>
+            </div>
+            <div class="faq-card">
+              <button class="faq-question">Kya main user naam save kar sakta hoon?</button>
+              <div class="faq-answer">Haan. Naam local storage mein save hota hai aur dobara jab page reload ho tab display hota hai.</div>
+            </div>
+            <div class="faq-card">
+              <button class="faq-question">Mobile par layout responsive hai?</button>
+              <div class="faq-answer">Bilkul. Sidebar mobile par top menu mein convert ho jata hai aur content vertically stack hota hai.</div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal-overlay hide" id="authModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeModal" aria-label="Close modal">×</button>
+      <div class="modal-header">
+        <p class="modal-label">Create your account</p>
+        <h2>Sign Up to Catalytic Dhairya</h2>
+      </div>
+      <form class="modal-form" id="authForm">
+        <label class="form-field">
+          <span>Full Name</span>
+          <input type="text" id="fullName" placeholder="Aapka poora naam" autocomplete="name" required>
+        </label>
+        <label class="form-field">
+          <span>Email</span>
+          <input type="email" id="email" placeholder="aapka@email.com" autocomplete="email" required>
+        </label>
+        <label class="form-field">
+          <span>Password</span>
+          <input type="password" id="password" placeholder="Password" autocomplete="new-password" required>
+        </label>
+        <button class="btn btn-primary modal-submit" id="registerBtn" type="button">Register</button>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
