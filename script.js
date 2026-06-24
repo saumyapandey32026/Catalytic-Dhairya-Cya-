@@ -212,11 +212,27 @@ document.addEventListener("DOMContentLoaded", function () {
   const faqCards = document.querySelectorAll(".faq-card");
   faqCards.forEach((card) => {
     const questionButton = card.querySelector(".faq-question");
-    if (questionButton) {
-      questionButton.addEventListener("click", function () {
-        card.classList.toggle("open");
-      });
-    }
+    const answerPanel = card.querySelector(".faq-answer");
+    const toggleIcon = card.querySelector(".faq-toggle-icon");
+
+    if (!questionButton || !answerPanel) return;
+
+    questionButton.addEventListener("click", () => {
+      const isOpen = card.classList.toggle("open");
+      if (isOpen) {
+        answerPanel.style.maxHeight = answerPanel.scrollHeight + 24 + "px";
+        toggleIcon.textContent = "×";
+      } else {
+        answerPanel.style.maxHeight = "0";
+        toggleIcon.textContent = "+";
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (card.classList.contains("open")) {
+        answerPanel.style.maxHeight = answerPanel.scrollHeight + 24 + "px";
+      }
+    });
   });
 
   // Set home page as default on load
