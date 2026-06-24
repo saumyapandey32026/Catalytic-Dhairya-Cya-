@@ -389,6 +389,25 @@ body.dark-mode .profile-widget {
   font-size: 0.85rem;
 }
 
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.avatar-fallback {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+}
+
 .profile-name {
   color: var(--text-primary);
   font-weight: 600;
@@ -716,6 +735,16 @@ body.dark-mode .overview-card p {
   margin-bottom: 40px;
 }
 
+/* About Us section background */
+#about-us {
+  background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
+  transition: background 0.3s ease;
+}
+
+body.dark-mode #about-us {
+  background: linear-gradient(135deg, #071028 0%, #0b1220 100%);
+}
+
 .section-header h2 {
   margin: 0;
   font-size: 2rem;
@@ -750,23 +779,24 @@ body.dark-mode .section-header p {
   max-width: 1200px;
 }
 
+
 .about-card {
   width: 100%;
   max-width: 900px;
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 28px;
-  padding: 36px 36px 32px;
-  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  padding: 34px 34px 30px;
+  box-shadow: 0 20px 46px rgba(15, 23, 42, 0.10);
   display: grid;
-  gap: 24px;
+  gap: 20px;
 }
 
 body.dark-mode .about-card {
-  background: rgba(15, 23, 42, 0.92);
-  border-color: rgba(100, 116, 139, 0.2);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(100, 116, 139, 0.18);
+  box-shadow: 0 20px 46px rgba(0, 0, 0, 0.42);
 }
 
 .about-card--profile {
@@ -785,17 +815,25 @@ body.dark-mode .about-card {
   width: 96px;
   height: 96px;
   border-radius: 50%;
-  background: radial-gradient(circle at top left, rgba(124, 58, 237, 0.22), rgba(59, 130, 246, 0.16));
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3), 0 18px 28px rgba(60, 72, 88, 0.14);
+  background: radial-gradient(circle at top left, rgba(124, 58, 237, 0.18), rgba(59, 130, 246, 0.12));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18), 0 16px 36px rgba(79, 70, 229, 0.12);
   display: grid;
   place-items: center;
+}
+
+.about-avatar-img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
 }
 
 .avatar-ring {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  border: 1px dashed rgba(255, 255, 255, 0.4);
+  border: 1px dashed rgba(255, 255, 255, 0.35);
 }
 
 .avatar-initials {
@@ -837,9 +875,7 @@ body.dark-mode .about-card h3 {
   margin: 0;
   font-size: 2.2rem;
   font-weight: 800;
-  background: linear-gradient(90deg, #7c3aed, #38bdf8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
   position: relative;
 }
 
@@ -850,31 +886,32 @@ body.dark-mode .about-card h3 {
   height: 4px;
   margin-top: 12px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #7c3aed, #38bdf8);
+  background: rgba(255,255,255,0.14);
 }
 
 .section-header--premium.section-header--block {
-  background: var(--bg-secondary);
-  padding: 24px 32px;
-  border-radius: 22px;
-  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
-  margin-bottom: 30px;
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  color: #ffffff;
+  padding: 20px 28px;
+  border-radius: 16px;
+  box-shadow: 0 18px 48px rgba(79, 70, 229, 0.12);
+  margin-bottom: 28px;
 }
 
 body.dark-mode .section-header--premium.section-header--block {
-  background: var(--bg-dark-secondary);
-  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, #3730a3 0%, #5b21b6 100%);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
 }
 
 .section-header--premium p {
   margin: 0;
   max-width: 720px;
-  color: var(--text-secondary);
+  color: rgba(255,255,255,0.9);
   font-weight: 600;
 }
 
 body.dark-mode .section-header--premium p {
-  color: var(--text-dark-secondary);
+  color: rgba(255,255,255,0.78);
 }
 
 .about-card p {

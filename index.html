@@ -36,7 +36,7 @@
         <a href="#" class="nav-link mobile-nav-link" data-tab="about-us">About Us</a>
       </div>
 
-      <div class="topbar-actions">
+        <div class="topbar-actions">
         <div class="auth-buttons" id="authButtons">
           <button class="btn btn-primary-cta" id="loginBtn">Login / Register</button>
         </div>
@@ -61,7 +61,10 @@
         </button>
         
         <div class="profile-widget">
-          <div class="avatar" id="profileAvatar">GU</div>
+          <div class="avatar" id="profileAvatar">
+            <img src="user-profile.jpg" alt="Profile" class="avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <span class="avatar-fallback" style="display:none">GU</span>
+          </div>
           <div class="profile-text">
             <span class="profile-name" id="profileName">Guest User</span>
           </div>
@@ -267,14 +270,15 @@
           <div class="about-panel">
             <div class="about-card about-card--profile">
               <div class="about-card-top">
-                <div class="about-avatar">
-                  <span class="avatar-ring"></span>
-                  <span class="avatar-initials">SP</span>
+                  <div class="about-avatar">
+                    <img src="my-profile.jpg" alt="Saumya Pandey" class="about-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid'">
+                    <span class="avatar-initials" style="display:none">SP</span>
+                    <span class="avatar-ring"></span>
+                  </div>
+                  <div class="about-card-top-text">
+                    <h3>Saumya Pandey</h3>
+                  </div>
                 </div>
-                <div class="about-card-top-text">
-                  <h3>Saumya Pandey</h3>
-                </div>
-              </div>
               <p>I am a student of IIT Madras B.S. in Data Science and Applications with a strong interest in Mathematics, Physics, Coding and teaching. Yahan hum saath-saath aage badhenge, consistency build karenge aur confident learning journey banayenge.</p>
               <div class="about-tags">
                 <span class="skill-badge skill-badge--violet">Mathematics</span>
