@@ -1360,13 +1360,16 @@ body.dark-mode .form-field input::placeholder {
   }
 
   .navbar-links {
-    gap: 16px;
-    flex: 0.8;
-    flex-wrap: wrap;
-    overflow-x: hidden;
+    display: flex;
+    gap: 15px;
+    flex: 1 1 auto;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    padding-bottom: 4px;
   }
 
   .navbar-links::-webkit-scrollbar {
@@ -1378,6 +1381,7 @@ body.dark-mode .form-field input::placeholder {
     flex: 0 0 auto;
     white-space: nowrap;
     font-size: 0.85rem;
+    padding: 8px 10px;
   }
 
   .btn-primary-cta {
@@ -1497,17 +1501,26 @@ body.dark-mode .form-field input::placeholder {
   }
 
   .navbar-links {
-    gap: 8px;
+    display: flex;
+    gap: 12px;
     order: 3;
     width: 100%;
     margin-top: 12px;
     padding-top: 12px;
     border-top: 1px solid #e5e7eb;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .navbar-links::-webkit-scrollbar {
+    display: none;
+    height: 0;
   }
 
   .nav-link {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
+    padding: 6px 10px;
   }
 
   .btn-primary-cta {
