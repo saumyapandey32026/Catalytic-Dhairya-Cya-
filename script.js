@@ -1,17 +1,79 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const greetingForm = document.getElementById("greetingForm");
-  const greetingMessage = document.getElementById("greetingMessage");
-  const userNameInput = document.getElementById("userName");
-  const saveNameBtn = document.getElementById("saveNameBtn");
-  const resetNameBtn = document.getElementById("resetNameBtn");
-  const welcomeText = document.getElementById("welcomeText");
-  const sidebarButtons = document.querySelectorAll(".sidebar-item");
-  const tabSections = document.querySelectorAll(".tab-section");
-  const faqCards = document.querySelectorAll(".faq-card");
+  // ===== CAROUSEL AUTO-SLIDING =====
+  const carouselSlides = document.querySelectorAll(".carousel-slide");
+  const carouselDots = document.querySelectorAll(".dot");
+  let currentSlide = 0;
+  const slideDuration = 5000; // 5 seconds
 
+  function showSlide(index) {
+    carouselSlides.forEach((slide) => slide.classList.remove("active"));
+    carouselDots.forEach((dot) => dot.classList.remove("active"));
+
+    carouselSlides[index].classList.add("active");
+    carouselDots[index].classList.add("active");
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % carouselSlides.length;
+    showSlide(currentSlide);
+  }
+
+  // Auto-advance carousel every 5 seconds
+  if (carouselSlides.length > 0) {
+    setInterval(nextSlide, slideDuration);
+
+    // Manual dot click navigation
+    carouselDots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        currentSlide = index;
+        showSlide(currentSlide);
+      });
+    });
+  }
+
+  // ===== SPA NAVIGATION =====
+  const navLinks = document.querySelectorAll(".nav-link");
+  const tabSections = document.querySelectorAll(".tab-section");
+  const overviewButtons = document.querySelectorAll(".card-button");
+
+  function setActiveTab(tabId) {
+    tabSections.forEach((section) => {
+      section.classList.toggle("active", section.id === tabId);
+    });
+
+    // Update navbar links active state
+    navLinks.forEach((link) => {
+      link.classList.toggle("active", link.dataset.tab === tabId);
+    });
+
+    // Scroll to top when changing tabs
+    window.scrollTo(0, 0);
+  }
+
+  // Navbar navigation
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const tabId = link.dataset.tab;
+      if (tabId) {
+        setActiveTab(tabId);
+      }
+    });
+  });
+
+  // Overview card buttons
+  overviewButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const tabId = btn.dataset.tab;
+      if (tabId) {
+        setActiveTab(tabId);
+      }
+    });
+  });
+
+  // ===== AUTHENTICATION =====
   const authModal = document.getElementById("authModal");
   const loginBtn = document.getElementById("loginBtn");
-  const signUpBtn = document.getElementById("signUpBtn");
   const logoutBtn = document.getElementById("logoutBtn");
   const closeModal = document.getElementById("closeModal");
   const registerBtn = document.getElementById("registerBtn");
@@ -21,27 +83,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const profileName = document.getElementById("profileName");
   const profileAvatar = document.getElementById("profileAvatar");
   const authButtons = document.getElementById("authButtons");
-
-  function showGreeting(name) {
-    welcomeText.textContent = `Welcome, ${name}! Let's start learning.`;
-    greetingForm.classList.add("hide");
-    greetingMessage.classList.remove("hide");
-  }
-
-  function hideGreeting() {
-    greetingForm.classList.remove("hide");
-    greetingMessage.classList.add("hide");
-    userNameInput.value = "";
-  }
-
-  function setActiveTab(tabId) {
-    tabSections.forEach((section) => {
-      section.classList.toggle("active", section.id === tabId);
-    });
-    sidebarButtons.forEach((btn) => {
-      btn.classList.toggle("active", btn.dataset.tab === tabId);
-    });
-  }
 
   function showModal() {
     authModal.classList.remove("hide");
@@ -53,7 +94,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function setUserProfile(name) {
     profileName.textContent = name;
-    profileAvatar.textContent = name.split(" ").map((part) => part[0]).slice(0, 2).join("");
+    profileAvatar.textContent = name
+      .split(" ")
+      .map((part) => part[0])
+      .slice(0, 2)
+      .join("");
     authButtons.classList.add("hide");
     logoutBtn.classList.remove("hide");
   }
@@ -67,26 +112,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const storedName = localStorage.getItem("cyaUserName");
   if (storedName) {
-    showGreeting(storedName);
     setUserProfile(storedName);
   }
 
-  saveNameBtn.addEventListener("click", function () {
-    const name = userNameInput.value.trim();
-    if (!name) {
-      userNameInput.focus();
-      return;
-    }
-    localStorage.setItem("cyaUserName", name);
-    showGreeting(name);
-  });
-
-  resetNameBtn.addEventListener("click", function () {
-    localStorage.removeItem("cyaUserName");
-    hideGreeting();
-  });
-
-  signUpBtn.addEventListener("click", showModal);
   loginBtn.addEventListener("click", showModal);
   closeModal.addEventListener("click", closeModalWindow);
   authModal.addEventListener("click", function (event) {
@@ -117,18 +145,17 @@ document.addEventListener("DOMContentLoaded", function () {
     resetProfile();
   });
 
-  sidebarButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      setActiveTab(this.dataset.tab);
-    });
-  });
-
+  // ===== FAQ ACCORDION =====
+  const faqCards = document.querySelectorAll(".faq-card");
   faqCards.forEach((card) => {
     const questionButton = card.querySelector(".faq-question");
-    questionButton.addEventListener("click", function () {
-      card.classList.toggle("open");
-    });
+    if (questionButton) {
+      questionButton.addEventListener("click", function () {
+        card.classList.toggle("open");
+      });
+    }
   });
 
-  setActiveTab("subjects");
+  // Set home page as default on load
+  setActiveTab("home");
 });

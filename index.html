@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catalytic Dhairya (Cya)</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/jpeg" href="pdfs/logo.jpeg">
+
 </head>
 <body>
   <div class="dashboard-shell">
@@ -12,17 +14,23 @@
       <div class="brand-panel">
         <img class="brand-logo" src="pdfs/logo.jpeg" alt="Cya logo">
         <div class="brand-text">
-          <p class="brand-title">Catalytic Dhairya</p>
-          <p class="brand-subtitle">(Cya)</p>
+          <p class="brand-title">Catalytic Dhairya (Cya)</p>
         </div>
       </div>
 
+      <nav class="navbar-links">
+        <a href="#" class="nav-link nav-home" data-tab="home">Home</a>
+        <a href="#" class="nav-link nav-courses" data-tab="subjects">All Courses</a>
+        <a href="#" class="nav-link nav-quotes" data-tab="quotes">Motivational Quotes</a>
+        <a href="#" class="nav-link nav-faqs" data-tab="faqs">FAQs</a>
+        <a href="#" class="nav-link">Cya Store</a>
+      </nav>
+
       <div class="topbar-actions">
         <div class="auth-buttons" id="authButtons">
-          <button class="btn btn-outline" id="loginBtn">Login</button>
-          <button class="btn btn-primary" id="signUpBtn">Sign Up</button>
+          <button class="btn btn-primary-cta" id="loginBtn">Login / Register</button>
         </div>
-        <button class="btn btn-outline hide" id="logoutBtn">Logout</button>
+        <button class="btn btn-primary-cta hide" id="logoutBtn">Logout</button>
         <div class="profile-widget">
           <div class="avatar" id="profileAvatar">GU</div>
           <div class="profile-text">
@@ -33,36 +41,65 @@
     </header>
 
     <div class="dashboard-grid">
-      <aside class="sidebar">
-        <div class="sidebar-title">MENU</div>
-        <button class="sidebar-item active" data-tab="subjects">📚 Subjects / Courses</button>
-        <button class="sidebar-item" data-tab="quotes">🔥 Motivational Quotes</button>
-        <button class="sidebar-item" data-tab="faqs">❓ FAQs</button>
-      </aside>
-
       <main class="main-panel">
-        <section class="hero-panel">
-          <div class="hero-copy">
-            <p class="eyebrow">Welcome to your learning hub</p>
-            <h1>Catalytic Dhairya (Cya) </h1>
-            <p>Structured courses, instant downloads, and daily motivation — sab ek hi jagah par.</p>
-          </div>
-          <div class="greeting-card">
-            <div class="greeting-box" id="greetingForm">
-              <p class="card-title">Aapka naam kya hai?</p>
-              <input id="userName" type="text" placeholder="Aapka naam" autocomplete="off">
-              <button id="saveNameBtn" class="btn btn-primary" type="button">Save</button>
+        <!-- HOME PAGE SECTION -->
+        <section class="tab-section active" id="home">
+          <!-- CAROUSEL BANNER -->
+          <div class="carousel-container">
+            <div class="carousel-wrapper">
+              <div class="carousel-slide active" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <div class="carousel-content">
+                  <h2>Welcome to Catalytic Dhairya</h2>
+                  <p>Transform Your Learning Journey with Cya</p>
+                </div>
+              </div>
+              <div class="carousel-slide" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                <div class="carousel-content">
+                  <h2>Boost Your Learning with Cya</h2>
+                  <p>Structured courses, instant downloads, and daily motivation</p>
+                </div>
+              </div>
+              <div class="carousel-slide" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                <div class="carousel-content">
+                  <h2>Master New Skills Every Week</h2>
+                  <p>Access premium study materials and resources</p>
+                </div>
+              </div>
             </div>
-            <div class="greeting-box hide" id="greetingMessage">
-              <p id="welcomeText" class="card-title"></p>
-              <p class="card-subtext">Welcome, learning journey ke liye tayar ho jaiye.</p>
-              <button id="resetNameBtn" class="text-button" type="button">Change Name</button>
+            <div class="carousel-dots">
+              <span class="dot active" data-slide="0"></span>
+              <span class="dot" data-slide="1"></span>
+              <span class="dot" data-slide="2"></span>
+            </div>
+          </div>
+
+          <!-- OVERVIEW CARDS -->
+          <div class="overview-section">
+            <div class="overview-card courses-card">
+              <div class="card-icon">📚</div>
+              <h3>Explore Our Courses</h3>
+              <p>Access comprehensive study materials organized by weeks. From Statistics to Python, find everything you need in one place.</p>
+              <button class="card-button explore-btn" data-tab="subjects">Explore Now</button>
+            </div>
+
+            <div class="overview-card motivation-card">
+              <div class="card-icon">🔥</div>
+              <h3>Daily Motivation</h3>
+              <p>"Aaj ka ek chhota step kal ke bade safar ka pehla kadam hota hai." Stay inspired on your learning journey with daily quotes.</p>
+              <button class="card-button motivation-btn" data-tab="quotes">Read More</button>
+            </div>
+
+            <div class="overview-card faqs-card">
+              <div class="card-icon">❓</div>
+              <h3>Have Questions?</h3>
+              <p>Find answers to common questions about PDFs, learning resources, and account management. We're here to help!</p>
+              <button class="card-button faqs-btn" data-tab="faqs">View FAQs</button>
             </div>
           </div>
         </section>
 
-        <section class="content-panel">
-          <div class="tab-section active" id="subjects">
+        <!-- COURSES SECTION -->
+        <section class="tab-section" id="subjects">
             <div class="section-header">
               <h2>Subjects / Courses</h2>
               <p>Week-wise PDF download buttons ke saath apna study plan aage badhaiye.</p>
@@ -137,8 +174,10 @@
               </article>
             </div>
           </div>
+        </section>
 
-          <div class="tab-section" id="quotes">
+        <!-- MOTIVATIONAL QUOTES SECTION -->
+        <section class="tab-section" id="quotes">
             <div class="section-header">
               <h2>Motivational Quotes</h2>
               <p>Daily inspiration se apna study mood maintain rakhein.</p>
@@ -157,9 +196,10 @@
                 <span>- Learning Journey</span>
               </article>
             </div>
-          </div>
+        </section>
 
-          <div class="tab-section" id="faqs">
+        <!-- FAQs SECTION -->
+        <section class="tab-section" id="faqs">
             <div class="section-header">
               <h2>FAQs</h2>
               <p>Frequently asked questions aur unke answers accordion style.</p>
@@ -176,7 +216,6 @@
               <button class="faq-question">Mobile par layout responsive hai?</button>
               <div class="faq-answer">Bilkul. Sidebar mobile par top menu mein convert ho jata hai aur content vertically stack hota hai.</div>
             </div>
-          </div>
         </section>
       </main>
     </div>
