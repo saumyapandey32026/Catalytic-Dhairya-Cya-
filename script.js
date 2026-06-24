@@ -47,30 +47,40 @@ document.addEventListener("DOMContentLoaded", function () {
   const carouselSlides = document.querySelectorAll(".carousel-slide");
   const carouselDots = document.querySelectorAll(".dot");
   let currentSlide = 0;
-  const slideDuration = 5000; // 5 seconds
+  let slideInterval = null;
+  const slideDuration = 5000;
 
   function showSlide(index) {
-    carouselSlides.forEach((slide) => slide.classList.remove("active"));
-    carouselDots.forEach((dot) => dot.classList.remove("active"));
+    carouselSlides.forEach((slide) => {
+      slide.classList.remove("active");
+    });
+    carouselDots.forEach((dot) => {
+      dot.classList.remove("active");
+    });
 
-    carouselSlides[index].classList.add("active");
-    carouselDots[index].classList.add("active");
+    const normalizedIndex = index % carouselSlides.length;
+    carouselSlides[normalizedIndex].classList.add("active");
+    carouselDots[normalizedIndex].classList.add("active");
+    currentSlide = normalizedIndex;
   }
 
-  function nextSlide() {
-    currentSlide = (currentSlide + 1) % carouselSlides.length;
-    showSlide(currentSlide);
+  function startSlideShow() {
+    if (slideInterval) {
+      clearInterval(slideInterval);
+    }
+    slideInterval = setInterval(() => {
+      showSlide((currentSlide + 1) % carouselSlides.length);
+    }, slideDuration);
   }
 
-  // Auto-advance carousel every 5 seconds
   if (carouselSlides.length > 0) {
-    setInterval(nextSlide, slideDuration);
+    showSlide(currentSlide);
+    startSlideShow();
 
-    // Manual dot click navigation
     carouselDots.forEach((dot, index) => {
       dot.addEventListener("click", () => {
-        currentSlide = index;
-        showSlide(currentSlide);
+        showSlide(index);
+        startSlideShow();
       });
     });
   }
