@@ -1,4 +1,48 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // ===== THEME TOGGLE SYSTEM =====
+  const themeToggleBtn = document.getElementById("themeToggle");
+  const htmlElement = document.documentElement;
+  const body = document.body;
+
+  // Check for saved theme preference or default to light mode
+  function initializeTheme() {
+    const savedTheme = localStorage.getItem("theme");
+    
+    if (savedTheme === "dark") {
+      body.classList.add("dark-mode");
+      updateThemeIcons(true);
+    } else {
+      body.classList.remove("dark-mode");
+      updateThemeIcons(false);
+      localStorage.setItem("theme", "light");
+    }
+  }
+
+  function updateThemeIcons(isDarkMode) {
+    const sunIcon = themeToggleBtn.querySelector(".sun-icon");
+    const moonIcon = themeToggleBtn.querySelector(".moon-icon");
+
+    if (isDarkMode) {
+      sunIcon.style.display = "none";
+      moonIcon.style.display = "block";
+    } else {
+      sunIcon.style.display = "block";
+      moonIcon.style.display = "none";
+    }
+  }
+
+  function toggleTheme() {
+    const isDarkMode = body.classList.toggle("dark-mode");
+    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+    updateThemeIcons(isDarkMode);
+  }
+
+  // Theme toggle button listener
+  themeToggleBtn.addEventListener("click", toggleTheme);
+
+  // Initialize theme on page load
+  initializeTheme();
+
   // ===== CAROUSEL AUTO-SLIDING =====
   const carouselSlides = document.querySelectorAll(".carousel-slide");
   const carouselDots = document.querySelectorAll(".dot");
@@ -75,8 +119,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const authModal = document.getElementById("authModal");
   const loginBtn = document.getElementById("loginBtn");
   const logoutBtn = document.getElementById("logoutBtn");
-  const closeModal = document.getElementById("closeModal");
+  const closeModalBtn = document.getElementById("closeModal");
   const registerBtn = document.getElementById("registerBtn");
+  const authForm = document.getElementById("authForm");
   const fullNameInput = document.getElementById("fullName");
   const emailInput = document.getElementById("email");
   const passwordInput = document.getElementById("password");
@@ -86,9 +131,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function showModal() {
     authModal.classList.remove("hide");
+    authModal.classList.add("show");
   }
 
   function closeModalWindow() {
+    authModal.classList.remove("show");
     authModal.classList.add("hide");
   }
 
@@ -115,15 +162,28 @@ document.addEventListener("DOMContentLoaded", function () {
     setUserProfile(storedName);
   }
 
-  loginBtn.addEventListener("click", showModal);
-  closeModal.addEventListener("click", closeModalWindow);
+  // Ensure modal is hidden by default
+  authModal.classList.add("hide");
+  authModal.classList.remove("show");
+
+  loginBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    showModal();
+  });
+
+  closeModalBtn.addEventListener("click", closeModalWindow);
+
   authModal.addEventListener("click", function (event) {
     if (event.target === authModal) {
       closeModalWindow();
     }
   });
 
-  registerBtn.addEventListener("click", function () {
+  function handleRegister(event) {
+    if (event) {
+      event.preventDefault();
+    }
+
     const fullName = fullNameInput.value.trim();
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
@@ -135,10 +195,13 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("cyaUserName", fullName);
     setUserProfile(fullName);
     closeModalWindow();
-    fullNameInput.value = "";
-    emailInput.value = "";
-    passwordInput.value = "";
-  });
+    authForm.reset();
+  }
+
+  registerBtn.addEventListener("click", handleRegister);
+  if (authForm) {
+    authForm.addEventListener("submit", handleRegister);
+  }
 
   logoutBtn.addEventListener("click", function () {
     localStorage.removeItem("cyaUserName");
