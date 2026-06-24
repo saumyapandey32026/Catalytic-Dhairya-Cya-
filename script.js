@@ -81,14 +81,20 @@ document.addEventListener("DOMContentLoaded", function () {
   const overviewButtons = document.querySelectorAll(".card-button");
 
   function setActiveTab(tabId) {
+    const validTabIds = Array.from(tabSections).map((section) => section.id);
+    const activeTab = validTabIds.includes(tabId) ? tabId : "home";
+
     tabSections.forEach((section) => {
-      section.classList.toggle("active", section.id === tabId);
+      section.classList.toggle("active", section.id === activeTab);
     });
 
     // Update navbar links active state
     navLinks.forEach((link) => {
-      link.classList.toggle("active", link.dataset.tab === tabId);
+      link.classList.toggle("active", link.dataset.tab === activeTab);
     });
+
+    // Persist active tab selection
+    localStorage.setItem("activeTab", activeTab);
 
     // Scroll to top when changing tabs
     window.scrollTo(0, 0);
@@ -235,6 +241,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Set home page as default on load
-  setActiveTab("home");
+  // Restore active tab from local storage if available
+  const savedTab = localStorage.getItem("activeTab");
+  setActiveTab(savedTab || "home");
 });
