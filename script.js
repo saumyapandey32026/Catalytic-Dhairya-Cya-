@@ -77,8 +77,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ===== SPA NAVIGATION =====
   const navLinks = document.querySelectorAll(".nav-link");
+  const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
   const tabSections = document.querySelectorAll(".tab-section");
   const overviewButtons = document.querySelectorAll(".card-button");
+  const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
 
   function setActiveTab(tabId) {
     const validTabIds = Array.from(tabSections).map((section) => section.id);
@@ -92,6 +95,12 @@ document.addEventListener("DOMContentLoaded", function () {
     navLinks.forEach((link) => {
       link.classList.toggle("active", link.dataset.tab === activeTab);
     });
+
+    mobileNavLinks.forEach((link) => {
+      link.classList.toggle("active", link.dataset.tab === activeTab);
+    });
+
+    closeMobileMenu();
 
     // Persist active tab selection
     localStorage.setItem("activeTab", activeTab);
@@ -109,6 +118,40 @@ document.addEventListener("DOMContentLoaded", function () {
         setActiveTab(tabId);
       }
     });
+  });
+
+  mobileNavLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const tabId = link.dataset.tab;
+      if (tabId) {
+        setActiveTab(tabId);
+      }
+    });
+  });
+
+  function closeMobileMenu() {
+    if (mobileMenu) {
+      mobileMenu.classList.remove("show");
+    }
+  }
+
+  mobileMenuToggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (mobileMenu) {
+      mobileMenu.classList.toggle("show");
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (
+      mobileMenu &&
+      mobileMenu.classList.contains("show") &&
+      !mobileMenu.contains(event.target) &&
+      event.target !== mobileMenuToggle
+    ) {
+      closeMobileMenu();
+    }
   });
 
   // Overview card buttons

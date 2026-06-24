@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catalytic Dhairya (Cya)</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/jpeg" href="pdfs/Tejas.jpeg">
+  <link rel="icon" type="image/jpeg" href="images/Tejas.jpeg">
 
 </head>
 <body>
   <div class="dashboard-shell">
     <header class="topbar">
       <div class="brand-panel">
-        <img class="brand-logo" src="pdfs/Tejas.jpeg" alt="Cya logo" loading="lazy">
+        <img class="brand-logo" src="images/Tejas.jpeg" alt="Cya logo" loading="lazy">
         <div class="brand-text">
           <p class="brand-title">Catalytic Dhairya (Cya)</p>
         </div>
@@ -23,7 +23,17 @@
         <a href="#" class="nav-link nav-courses" data-tab="subjects">All Courses</a>
         <a href="#" class="nav-link nav-quotes" data-tab="quotes">Motivational Quotes</a>
         <a href="#" class="nav-link nav-faqs" data-tab="faqs">FAQs</a>
+        <a href="#" class="nav-link nav-about" data-tab="about-us">About Us</a>
       </nav>
+
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open mobile menu">☰</button>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#" class="nav-link mobile-nav-link" data-tab="home">Home</a>
+        <a href="#" class="nav-link mobile-nav-link" data-tab="subjects">All Courses</a>
+        <a href="#" class="nav-link mobile-nav-link" data-tab="quotes">Motivational Quotes</a>
+        <a href="#" class="nav-link mobile-nav-link" data-tab="faqs">FAQs</a>
+        <a href="#" class="nav-link mobile-nav-link" data-tab="about-us">About Us</a>
+      </div>
 
       <div class="topbar-actions">
         <div class="auth-buttons" id="authButtons">
@@ -156,8 +166,10 @@
                 <div class="chapter-row">
                   <span>Week 3</span>
                   <a class="chapter-download" href="https://drive.google.com/uc?export=download&id=MATH_CH3" target="_blank" rel="noreferrer">Download</a>
-                </div>
-              </article>
+                </div>              <div class="chapter-row">
+                <span>Week 4</span>
+                <a class="chapter-download" href="https://drive.google.com/uc?export=download&id=MATH_CH4" target="_blank" rel="noreferrer">Download</a>
+              </div>              </article>
 
               <article class="subject-card">
                 <h3>Computational Thinking</h3>
@@ -172,6 +184,10 @@
                 <div class="chapter-row">
                   <span>Week 3</span>
                   <a class="chapter-download" href="https://drive.google.com/uc?export=download&id=CT_CH3" target="_blank" rel="noreferrer">Download</a>
+                </div>
+                <div class="chapter-row">
+                  <span>Week 4</span>
+                  <a class="chapter-download" href="https://drive.google.com/uc?export=download&id=CT_CH4" target="_blank" rel="noreferrer">Download</a>
                 </div>
               </article>
 
@@ -188,6 +204,10 @@
                 <div class="chapter-row">
                   <span>Week 3</span>
                   <a class="chapter-download" href="https://drive.google.com/uc?export=download&id=PY_CH3" target="_blank" rel="noreferrer">Download</a>
+                </div>
+                <div class="chapter-row">
+                  <span>Week 4</span>
+                  <a class="chapter-download" href="https://drive.google.com/uc?export=download&id=PY_CH4" target="_blank" rel="noreferrer">Download</a>
                 </div>
               </article>
             </div>
@@ -235,6 +255,21 @@
                 <span class="quote-author">Truth · Poverty</span>
               </article>
             </div>
+        </section>
+
+        <!-- ABOUT US SECTION -->
+        <section class="tab-section" id="about-us">
+          <div class="section-header">
+            <h2>About Us</h2>
+            <p>Yahan Cya ka mission aur hamari learning journey dono milte hain.</p>
+          </div>
+          <div class="about-panel">
+            <div class="about-card">
+              <h3>Namaste! Mera naam Saumya Pandey hai</h3>
+              <p>Mai IIT Madras ki BS Data Science and applications ki student hun, jise Mathematics, Physics, Coding aur teaching mein bahut junoon hai. Yahan hum sath sath aage badhenge aur sath sath chije sikhenge.</p>
+              <p>Mai sikhne ke sath sath sikhana chahti hun, aur yeh portfolio aapko apni learning journey ka ek premium aur clean view deta hai.</p>
+            </div>
+          </div>
         </section>
 
         <!-- FAQs SECTION -->
